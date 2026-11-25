@@ -1,5 +1,17 @@
 const packageModal = document.querySelector("#packageDetailModal");
 const contactForm = document.querySelector("#contact-form");
+const navbar = document.querySelector(".navbar");
+
+if (navbar) {
+  const updateNavbar = () => {
+    const hero = document.querySelector(".hero");
+    const heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 720;
+    navbar.classList.toggle("is-scrolled", window.scrollY + 68 >= heroBottom);
+  };
+
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar, { passive: true });
+}
 
 if (packageModal) {
   const packageTitle = document.querySelector("#packageModalTitle");
